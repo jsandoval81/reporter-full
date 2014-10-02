@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html data-ng-app="ngReporter" data-ng-controller="AppCtrl">
+    <head>
+        <title data-ng-bind="pageTitle"> </title>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Font awesome from BootstrapCDN -->
+        <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Compiled CSS -->
+        <link rel="stylesheet" type="text/css" href="public/css/application.min.css" />
+
+        <!-- Compiled JavaScript -->
+        <script type="text/javascript" src="public/js/application.min.js"></script>
+    </head>
+    <body>
+        <!-- Navigation menu -->
+        <div id="main-navbar" class="navbar navbar-default navbar-fixed-top" data-ng-controller="NavbarCtrl">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-ng-init="isCollapsed = true" data-ng-click="isCollapsed = !isCollapsed">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#">
+                    <span class="navbar-logo-container"><img src="#" alt="logo" data-ph-img="200x45" class="img-rounded navbar-logo" /></span>
+                </a>
+            </div>
+            <div class="navbar-collapse" data-ng-class="{collapse: isCollapsed}">
+                <ul class="nav navbar-nav">
+                    <!-- TODO: Generate a model for these top nav links -->
+                    <li id="home-nav" data-ng-class="{'top-nav-selected': isActive('/home'), 'top-nav-hover': !isActive('/home') && homeHover}" data-ng-mouseenter="homeHover = true" data-ng-mouseleave="homeHover = false">
+                        <a data-ui-sref="home" ng-if="!isActiveTopLevel('/home')">Home</a>
+                        <a ng-if="isActiveTopLevel('/home')">Home</a>
+                    </li>
+                    <li id="reports-nav" data-ng-class="{'top-nav-selected': isActive('/reports'), 'top-nav-hover': !isActive('/reports') && reportsHover}" data-ng-mouseenter="reportsHover = true" data-ng-mouseleave="reportsHover = false">
+                        <a data-ui-sref="reports" ng-if="!isActiveTopLevel('/reports')">Reports</a>
+                        <a ng-if="isActiveTopLevel('/reports')">Reports</a>
+                    </li>
+                    <li id="about-nav" data-ng-class="{'top-nav-selected': isActive('/about'), 'top-nav-hover': !isActive('/about') && aboutHover}" data-ng-mouseenter="aboutHover = true" data-ng-mouseleave="aboutHover = false">
+                        <a data-ui-sref="about" ng-if="!isActiveTopLevel('/about')">About</a>
+                        <a ng-if="isActiveTopLevel('/about')">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main content container -->
+        <div id="ng-main" data-ui-view="main"></div>
+
+        <!-- Page footer -->
+        <div class="footer navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div class="footer-inner">
+                    Footer
+                </div>
+            </div>
+        </div>
+        <!-- Scripting -->
+        <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+    </body>
+</html>

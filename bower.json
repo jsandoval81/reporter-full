@@ -1,0 +1,13 @@
+{
+  "name": "reporter",
+  "version": "0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.2",
+    "angular-ui-router": "~0.2",
+    "angular-bootstrap": "~0.10.0",
+    "angular-placeholders": "git+https://github.com/Iristyle/bower-angular-placeholders.git#0.0.1",
+    "angular-mocks": "~1.2",
+    "bootstrap": "~3.1"
+  }
+}
